@@ -37,8 +37,7 @@ Discord()
 
 -- Загрузка скриптов под конкретные игры
 if game.PlaceId == 537413528 then -- Build A Boat For Treasure 🌊
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/tirvox/babft/refs/heads/main/farm1.lua'))()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/tirvox/babft/main/farm1.lua'))()
 elseif game.PlaceId == 13924946576 then -- Dingus 🔧
-    -- ВСТАВЬ СВОЮ ССЫЛКУ НА СКРИПТ СЮДА:
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/tirvox/tirvoxdingus/blob/main/tirvoxdingus.lua'))()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/tirvox/tirvoxdingus/main/tirvoxdingus.lua'))()
 end
