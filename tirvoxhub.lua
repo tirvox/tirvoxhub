@@ -35,9 +35,35 @@ end
 
 Discord()
 
+-- Функция безопасной загрузки
+local function safeLoad(url)
+    local success, result = pcall(function()
+        local data = game:HttpGet(url)
+        local f = loadstring(data)
+        if f then
+            f()
+        else
+            error("Invalid script (nil loadstring)")
+        end
+    end)
+    if not success then
+        local errMsg = result or "Unknown error"
+        game:GetService("StarterGui"):SetCore("SendNotification", {
+            Title = "Ошибка загрузки",
+            Text = url .. "\n" .. errMsg,
+            Duration = 10
+        })
+        warn("Ошибка загрузки скрипта: " .. url .. "\n" .. errMsg)
+    end
+end
+
 -- Загрузка скриптов под конкретные игры
 if game.PlaceId == 537413528 then -- Build A Boat For Treasure 🌊
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/tirvox/babft/main/farm1.lua'))()
+    safeLoad('https://raw.githubusercontent.com/tirvox/babft/main/farm1.lua')
+    -- Если ссылка не работает, раскомментируй строку ниже и вставь свой код прямо сюда
+    -- loadstring([[ ... твой код ... ]])()
 elseif game.PlaceId == 13924946576 then -- Dingus 🔧
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/tirvox/tirvoxdingus/main/tirvoxdingus.lua'))()
+    safeLoad('https://raw.githubusercontent.com/tirvox/tirvoxdingus/main/tirvoxdingus.lua')
+    -- Вставь свой код напрямую, если ссылка не грузится:
+    -- loadstring([[ ... твой код ... ]])()
 end
