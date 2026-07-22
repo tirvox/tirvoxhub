@@ -60,10 +60,8 @@ end
 -- Загрузка скриптов под конкретные игры
 if game.PlaceId == 537413528 then -- Build A Boat For Treasure 🌊
     safeLoad('https://raw.githubusercontent.com/tirvox/babft/main/farm1.lua')
-    -- Если ссылка не работает, раскомментируй строку ниже и вставь свой код прямо сюда
-    -- loadstring([[ ... твой код ... ]])()
 elseif game.PlaceId == 13924946576 then -- Dingus 🔧
     safeLoad('https://raw.githubusercontent.com/tirvox/tirvoxdingus/main/tirvoxdingus.lua')
-    -- Вставь свой код напрямую, если ссылка не грузится:
-    -- loadstring([[ ... твой код ... ]])()
+elseif game.PlaceId == 134362540404764 then -- Gender RNG 🚻
+    safeLoad('https://raw.githubusercontent.com/tirvox/gendertirvoxhub/main/gendertirvoxhub1.lua')
 end
